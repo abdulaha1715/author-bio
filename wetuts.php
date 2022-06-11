@@ -68,39 +68,47 @@ function wptuts_wp_footer() {
 function wetuts_author_bio( $content ) {
     global $post;
 
-    $author   = get_user_by( 'id', $post->post_author );
+    $author    = get_user_by( 'id', $post->post_author );
 
-    $bio      = get_user_meta( $author->ID, 'description', true );
-    $twitter  = get_user_meta( $author->ID, 'twitter', true );
-    $facebook = get_user_meta( $author->ID, 'facebook', true );
-    $linkedin = get_user_meta( $author->ID, 'linkedin', true );
+    $bio       = get_user_meta( $author->ID, 'description', true );
+    $twitter   = get_user_meta( $author->ID, 'twitter', true );
+    $facebook  = get_user_meta( $author->ID, 'facebook', true );
+    $linkedin  = get_user_meta( $author->ID, 'linkedin', true );
+    $instagram = get_user_meta( $author->ID, 'instagram', true );
 
     ob_start();
     ?>
-    <div class="wetuts-bio-wrap">
-
-        <div class="avatar-image">
-            <?php echo get_avatar( $author->ID, 64 ); ?>
-        </div>
-
-        <div class="wetuts-bio-content">
-            <div class="author-name"><?php echo $author->display_name; ?></div>
-
-            <div class="wetuts-author-bio">
-                <?php echo wpautop( wp_kses_post( $bio ) ); ?>
+    <div class="wetuts-bio">
+        <div class="wetuts-wrap">
+            <div class="avatar-image">
+                <?php echo get_avatar( $author->ID, 64 ); ?>
             </div>
 
-            <ul class="wetuts-socials">
+            <div class="wetuts-bio-content">
+                <div class="author-name"><?php echo $author->display_name; ?></div>
+
+                <div class="wetuts-author-bio">
+                    <?php echo wpautop( wp_kses_post( $bio ) ); ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="wetuts-socials">
+            <ul>
                 <?php if ( $twitter ) { ?>
-                    <li><a href="<?php echo esc_url( $twitter ); ?>"><?php _e( 'Twitter', 'wetuts' ); ?></a></li>
+                    <li><a class="twitter" href="<?php echo esc_url( $twitter ); ?>"><i class="fab fa-twitter"></i></a></li>
                 <?php } ?>
 
                 <?php if ( $facebook ) { ?>
-                    <li><a href="<?php echo esc_url( $facebook ); ?>"><?php _e( 'Facebook', 'wetuts' ); ?></a></li>
+                    <li><a class="facebook" href="<?php echo esc_url( $facebook ); ?>"><i class="fab fa-facebook-f"></i></a></li>
+                <?php } ?>
+
+                <?php if ( $instagram ) { ?>
+                    <li><a class="instagram" href="<?php echo esc_url( $instagram ); ?>"><i class="fab fa-instagram"></i></a></li>
                 <?php } ?>
 
                 <?php if ( $linkedin ) { ?>
-                    <li><a href="<?php echo esc_url( $linkedin ); ?>"><?php _e( 'LinkedIn', 'wetuts' ); ?></a></li>
+                    <li><a class="linkedin" href="<?php echo esc_url( $linkedin ); ?>"><i class="fab fa-linkedin-in"></i></a></li>
                 <?php } ?>
             </ul>
         </div>
@@ -115,6 +123,7 @@ add_filter( 'the_content', 'wetuts_author_bio' );
 
 function wetuts_enqueue_scripts() {
     wp_enqueue_style( 'wetuts-style', plugins_url( 'assets/css/style.css', __FILE__ ) );
+    wp_enqueue_style( 'wetuts-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css' );
 }
 
 add_action( 'wp_enqueue_scripts', 'wetuts_enqueue_scripts' );

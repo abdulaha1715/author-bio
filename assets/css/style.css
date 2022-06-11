@@ -1,35 +1,136 @@
-.wetuts-bio-wrap {
-    margin: 40px 0 20px 0;
-    border: 1px solid #eee;
-    padding: 20px;
-    display: block;
-    overflow: hidden;
+/*
+    Author bio style 
+ */
+
+.wetuts-bio {
+    border: 2px solid #ddd;
 }
 
-.wetuts-bio-wrap .avatar-image {
-    float: left;
-    margin-right: 15px;
-    margin-bottom: 15px;
+.wetuts-wrap {
+    display: flex;
+    padding: 20px;
+    justify-content: flex-start;
+    border-bottom: 1px solid #ddd;
+}
+
+.avatar-image {
+    width: 25%;
+    margin-right: 25px;
+}
+
+.avatar-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
 }
 
 .wetuts-bio-content .author-name {
-    font-weight: bold;
-    padding-bottom: 10px;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 28px;
+    padding-bottom: 5px;
+    font-family: sans-serif;
+    text-transform: capitalize;
 }
 
-ul.wetuts-socials {
-    clear: both;
+.wetuts-author-bio p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 21px;
+    font-family: sans-serif;
+}
+
+.wetuts-socials {
+    padding: 20px;
+}
+
+.wetuts-socials ul {
     margin: 0;
     padding: 0;
+}
+
+.wetuts-socials ul li {
+    margin: 0;
+    padding: 0;
+    margin-right: 5px;
     list-style: none;
-}
-
-ul.wetuts-socials li {
     display: inline-block;
-    border: 1px solid #eee;
-    padding: 3px 10px;
 }
 
-ul.wetuts-socials li a {
+.wetuts-socials ul li a {
+    width: 50px;
+    height: 50px;
+    font-size: 21px;
+    display: block;
+    line-height: 50px;
+    border-radius: 50%;
+    text-align: center;
     text-decoration: none;
+    border: 1px solid #ddd;
+}
+
+.wetuts-socials ul li a.twitter {
+    color: #ffffff;
+    background: #1DA1F2;
+}
+
+.wetuts-socials ul li a.twitter:hover {
+    color: #ffffff;
+    background: #3cbfff;
+}
+
+.wetuts-socials ul li a.facebook {
+    color: #ffffff;
+    background: #1877F2;
+}
+
+.wetuts-socials ul li a.facebook:hover {
+    color: #ffffff;
+    background: #4864a4;
+}
+
+.wetuts-socials ul li a.linkedin {
+    color: #ffffff;
+    background: #0A66C2;
+}
+
+.wetuts-socials ul li a.linkedin:hover {
+    color: #ffffff;
+    background: #04669A;
+}
+.wetuts-socials ul li a.instagram {
+    color: #ffffff;
+    background: #e4405fe0;
+}
+
+.wetuts-socials ul li a.instagram:hover {
+    color: #ffffff;
+    background: #E4405F;
+}
+
+/* 
+    Responsive Code
+ */
+
+@media screen and (max-width: 575px) {
+   .wetuts-wrap {
+        display: block;
+        padding: 15px;
+    } 
+
+    .avatar-image {
+        width: 34%;
+        margin-bottom: 20px;
+    }
+
+    .wetuts-socials {
+        padding: 15px;
+    }
+
+    .wetuts-socials ul li a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        line-height: 40px;
+    }
 }

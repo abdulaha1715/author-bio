@@ -10,6 +10,7 @@ function wetuts_user_contact_methods( $methods ) {
     $methods['twitter'] = __( 'Twitter', 'wetuts' );
     $methods['facebook'] = __( 'Facebook', 'wetuts' );
     $methods['linkedin'] = __( 'LinkedIn', 'wetuts' );
+    $methods['instagram'] = __( 'Instagram', 'wetuts' );
 
     return $methods;
 }
